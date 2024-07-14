@@ -17,6 +17,8 @@ var dsn = fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true", os.Getenv("DB_USER")
 var db *gorm.DB
 
 func ConnectDB() {
+	fmt.Println("dsn:", dsn)
+
 	var err error
 	db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{
 		Logger: logger.New(
